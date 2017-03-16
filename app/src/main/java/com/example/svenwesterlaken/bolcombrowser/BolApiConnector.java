@@ -96,7 +96,12 @@ public class BolApiConnector extends AsyncTask<String, Void, String> {
 
                 String title = product.getString("title");
                 String specsTag = product.getString("specsTag");
-                String summary = product.getString("summary");
+                String summary;
+                if (product.getString("summary") != null) {
+                    summary = product.getString("summary");
+                } else {
+                    summary = "";
+                }
                 String longDescription = product.getString("longDescription");
                 String smallImageUrl = images.getJSONObject(1).getString("url");
                 String largeImageUrl = images.getJSONObject(3).getString("url");
